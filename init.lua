@@ -1,3 +1,7 @@
+--Ores
+dofile(minetest.get_modpath("electronic_materials") .. "/ores.lua")
+dofile(minetest.get_modpath("electronic_materials") .. "/ores_crafting.lua")
+
 --Molten Stuff
 minetest.register_craftitem("electronic_materials:glass_shards", {
 	description = "Glass Shards",
@@ -25,6 +29,7 @@ minetest.register_craftitem("electronic_materials:molten_glass", {
     description = "Molten Glass",
     inventory_image = "em_molten_glass.png"
 })
+
 minetest.register_craft({
 	type = "cooking",
 	output = "electronic_materials:molten_glass",
@@ -51,6 +56,17 @@ minetest.register_craft({
 	type = "cooking",
 	output = "electronic_materials:molten_tin",
 	recipe = "default:tin_ingot",
+})
+
+minetest.register_craftitem("electronic_materials:molten_silicon", {
+    description = "Molten Silicon",
+    inventory_image = "em_molten_tin.png"
+})
+
+minetest.register_craft({
+  type = "cooking",
+  output = "electronic_materials:molten_silicon",
+  recipe = "electronic_materials:silicon_ingot",
 })
 
 --Copper Clads
@@ -105,6 +121,11 @@ minetest.register_craftitem("electronic_materials:green_solder_mask", {
     inventory_image = "em_green_solder_mask.png"
 })
 
+minetest.register_craftitem("electronic_materials:blue_solder_mask", {
+    description = "Blue Solder Mask",
+    inventory_image = "em_blue_solder_mask.png"
+})
+
 minetest.register_craft({
 	type = "shapeless",
 	output = "electronic_materials:green_solder_mask",
@@ -122,71 +143,71 @@ minetest.register_craft({
     recipe = {"electronic_materials:molten_plastic", "electronic_materials:molten_glass"}
 })
 
---Circut Boards
-minetest.register_craftitem("electronic_materials:small_circut_board_unmasked", {
-    description = "Small Unmasked Circut Board",
-    inventory_image = "em_small_circut_board_unmasked.png"
+--Circuit Boards
+minetest.register_craftitem("electronic_materials:small_circuit_board_unmasked", {
+    description = "Small Unmasked Circuit Board",
+    inventory_image = "em_small_circuit_board_unmasked.png"
 })
 
 minetest.register_craft({
     type = "shapeless",
-    output = "electronic_materials:small_circut_board_unmasked",
+    output = "electronic_materials:small_circuit_board_unmasked",
     recipe = { "electronic_materials:small_copper_clad" }
 })
 
-minetest.register_craftitem("electronic_materials:medium_circut_board_unmasked", {
-    description = "Medium Unmasked Circut Board",
-    inventory_image = "em_medium_circut_board_unmasked.png"
+minetest.register_craftitem("electronic_materials:medium_circuit_board_unmasked", {
+    description = "Medium Unmasked Circuit Board",
+    inventory_image = "em_medium_circuit_board_unmasked.png"
 })
 
 minetest.register_craft({
     type = "shapeless",
-    output = "electronic_materials:medium_circut_board_unmasked",
+    output = "electronic_materials:medium_circuit_board_unmasked",
     recipe = { "electronic_materials:medium_copper_clad" }
 })
 
-minetest.register_craftitem("electronic_materials:large_circut_board_unmasked", {
-    description = "Large Unmasked Circut Board",
-    inventory_image = "em_large_circut_board_unmasked.png"
+minetest.register_craftitem("electronic_materials:large_circuit_board_unmasked", {
+    description = "Large Unmasked Circuit Board",
+    inventory_image = "em_large_circuit_board_unmasked.png"
 })
 
 minetest.register_craft({
     type = "shapeless",
-    output = "electronic_materials:large_circut_board_unmasked",
+    output = "electronic_materials:large_circuit_board_unmasked",
     recipe = { "electronic_materials:large_copper_clad" }
 })
 
-minetest.register_craftitem("electronic_materials:small_circut_board", {
-    description = "Small Circut Board",
-    inventory_image = "em_small_circut_board.png"
+minetest.register_craftitem("electronic_materials:small_circuit_board", {
+    description = "Small Circuit Board",
+    inventory_image = "em_small_circuit_board.png"
 })
 
 minetest.register_craft({
     type = "shapeless",
-    output = "electronic_materials:small_circut_board",
-    recipe = { "electronic_materials:small_circut_board_unmasked", "electronic_materials:plastic_fiberglass", "electronic_materials:green_solder_mask" }
+    output = "electronic_materials:small_circuit_board",
+    recipe = { "electronic_materials:small_circuit_board_unmasked", "electronic_materials:plastic_fiberglass", "electronic_materials:green_solder_mask" }
 })
 
-minetest.register_craftitem("electronic_materials:medium_circut_board", {
+minetest.register_craftitem("electronic_materials:medium_circuit_board", {
     description = "Medium Curcut Board",
-    inventory_image = "em_medium_circut_board.png"
+    inventory_image = "em_medium_circuit_board.png"
 })
 
 minetest.register_craft({
     type = "shapeless",
-    output = "electronic_materials:medium_circut_board",
-    recipe = { "electronic_materials:medium_circut_board_unmasked", "electronic_materials:plastic_fiberglass", "electronic_materials:green_solder_mask" }
+    output = "electronic_materials:medium_circuit_board",
+    recipe = { "electronic_materials:medium_circuit_board_unmasked", "electronic_materials:plastic_fiberglass", "electronic_materials:green_solder_mask" }
 })
 
-minetest.register_craftitem("electronic_materials:large_circut_board", {
-    description = "Large Circut Board",
-    inventory_image = "em_large_circut_board.png"
+minetest.register_craftitem("electronic_materials:large_circuit_board", {
+    description = "Large Circuit Board",
+    inventory_image = "em_large_circuit_board.png"
 })
 
 minetest.register_craft({
     type = "shapeless",
-    output = "electronic_materials:large_circut_board",
-    recipe = { "electronic_materials:large_circut_board_unmasked", "electronic_materials:plastic_fiberglass", "electronic_materials:green_solder_mask" }
+    output = "electronic_materials:large_circuit_board",
+    recipe = { "electronic_materials:large_circuit_board_unmasked", "electronic_materials:plastic_fiberglass", "electronic_materials:green_solder_mask" }
 })
 
 --Motherboards and Misc
@@ -198,7 +219,7 @@ minetest.register_craftitem("electronic_materials:bios_chip", {
 minetest.register_craft({
     type = "shapeless",
     output = "electronic_materials:bios_chip",
-    recipe = { "electronic_materials:molten_plastic", "electronic_materials:molten_tin", "electronic_materials:small_circut_board",
+    recipe = { "electronic_materials:molten_plastic", "electronic_materials:molten_tin", "electronic_materials:small_circuit_board",
 		"basic_materials:plastic_sheet", "dye:black" }
 })
 
@@ -222,7 +243,7 @@ minetest.register_craftitem("electronic_materials:small_motherboard", {
 minetest.register_craft({
     type = "shapeless",
     output = "electronic_materials:small_motherboard",
-    recipe = { "electronic_materials:small_circut_board", "electronic_materials:bios_chip" }
+    recipe = { "electronic_materials:small_circuit_board", "electronic_materials:bios_chip" }
 })
 
 minetest.register_craftitem("electronic_materials:medium_motherboard", {
@@ -233,7 +254,7 @@ minetest.register_craftitem("electronic_materials:medium_motherboard", {
 minetest.register_craft({
     type = "shapeless",
     output = "electronic_materials:medium_motherboard",
-    recipe = { "electronic_materials:medium_circut_board", "electronic_materials:bios_chip" }
+    recipe = { "electronic_materials:medium_circuit_board", "electronic_materials:bios_chip" }
 })
 
 minetest.register_craftitem("electronic_materials:large_motherboard", {
@@ -244,7 +265,7 @@ minetest.register_craftitem("electronic_materials:large_motherboard", {
 minetest.register_craft({
     type = "shapeless",
     output = "electronic_materials:large_motherboard",
-    recipe = { "electronic_materials:large_circut_board", "electronic_materials:bios_chip" }
+    recipe = { "electronic_materials:large_circuit_board", "electronic_materials:bios_chip" }
 })
 
 --Hard Drive Materials
@@ -332,7 +353,7 @@ minetest.register_craftitem("electronic_materials:hard_drive_500gb", {
 minetest.register_craft({
     type = "shapeless",
     output = "electronic_materials:hard_drive_500gb",
-    recipe = { "electronic_materials:hard_drive_enclosure", "electronic_materials:small_circut_board", "electronic_materials:microcontroller_unit",
+    recipe = { "electronic_materials:hard_drive_enclosure", "electronic_materials:small_circuit_board", "electronic_materials:microcontroller_unit",
 		"electronic_materials:hard_disk_platter" }
 })
 
@@ -344,7 +365,7 @@ minetest.register_craftitem("electronic_materials:hard_drive_1tb", {
 minetest.register_craft({
     type = "shapeless",
     output = "electronic_materials:hard_drive_1tb",
-    recipe = { "electronic_materials:hard_drive_enclosure", "electronic_materials:small_circut_board", "electronic_materials:microcontroller_unit",
+    recipe = { "electronic_materials:hard_drive_enclosure", "electronic_materials:small_circuit_board", "electronic_materials:microcontroller_unit",
 		"electronic_materials:two_hard_disk_platters" }
 })
 
@@ -356,7 +377,7 @@ minetest.register_craftitem("electronic_materials:hard_drive_1_5tb", {
 minetest.register_craft({
     type = "shapeless",
     output = "electronic_materials:hard_drive_1_5tb",
-    recipe = { "electronic_materials:hard_drive_enclosure", "electronic_materials:small_circut_board", "electronic_materials:microcontroller_unit",
+    recipe = { "electronic_materials:hard_drive_enclosure", "electronic_materials:small_circuit_board", "electronic_materials:microcontroller_unit",
 		"electronic_materials:three_hard_disk_platters" }
 })
 
@@ -368,7 +389,7 @@ minetest.register_craftitem("electronic_materials:hard_drive_2tb", {
 minetest.register_craft({
     type = "shapeless",
     output = "electronic_materials:hard_drive_2tb",
-    recipe = { "electronic_materials:hard_drive_enclosure", "electronic_materials:small_circut_board", "electronic_materials:microcontroller_unit",
+    recipe = { "electronic_materials:hard_drive_enclosure", "electronic_materials:small_circuit_board", "electronic_materials:microcontroller_unit",
 		"electronic_materials:four_hard_disk_platters" }
 })
 
@@ -380,6 +401,137 @@ minetest.register_craftitem("electronic_materials:hard_drive_2_5tb", {
 minetest.register_craft({
     type = "shapeless",
     output = "electronic_materials:hard_drive_2_5tb",
-    recipe = { "electronic_materials:hard_drive_enclosure", "electronic_materials:small_circut_board", "electronic_materials:microcontroller_unit",
+    recipe = { "electronic_materials:hard_drive_enclosure", "electronic_materials:small_circuit_board", "electronic_materials:microcontroller_unit",
 		"electronic_materials:five_hard_disk_platters" }
+})
+
+--SSDs
+minetest.register_craftitem("electronic_materials:silicon_wafer", {
+    description = "Silicon Wafer",
+    inventory_image = "em_silicon_wafer.png"
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "electronic_materials:silicon_wafer",
+    recipe = {
+    {"", "electronic_materials:molten_silicon", ""},
+    {"electronic_materials:molten_silicon", "electronic_materials:molten_silicon", "electronic_materials:molten_silicon"},
+    {"", "electronic_materials:molten_silicon", ""}
+  }
+})
+
+minetest.register_craftitem("electronic_materials:integrated_circuit", {
+    description = "Integrated Circuit",
+    inventory_image = "em_integrated_circuit.png"
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "electronic_materials:integrated_circuit 32",
+    recipe = {"electronic_materials:silicon_wafer"}
+})
+
+minetest.register_craftitem("electronic_materials:2_integrated_circuits", {
+    description = "2 Integrated Circuits",
+    inventory_image = "multiple_integrated_circuits.png"
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "electronic_materials:2_integrated_circuits",
+    recipe = {"electronic_materials:integrated_circuit", "electronic_materials:integrated_circuit"}
+})
+
+minetest.register_craftitem("electronic_materials:4_integrated_circuits", {
+    description = "4 Integrated Circuits",
+    inventory_image = "multiple_integrated_circuits.png"
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "electronic_materials:4_integrated_circuits",
+    recipe = {"electronic_materials:2_integrated_circuits", "electronic_materials:2_integrated_circuits"}
+})
+
+minetest.register_craftitem("electronic_materials:8_integrated_circuits", {
+    description = "8 Integrated Circuits",
+    inventory_image = "multiple_integrated_circuits.png"
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "electronic_materials:8_integrated_circuits",
+    recipe = {"electronic_materials:4_integrated_circuits", "electronic_materials:4_integrated_circuits"}
+})
+
+minetest.register_craftitem("electronic_materials:16_integrated_circuits", {
+    description = "16 Integrated Circuits",
+    inventory_image = "multiple_integrated_circuits.png"
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "electronic_materials:16_integrated_circuits",
+    recipe = {"electronic_materials:8_integrated_circuits", "electronic_materials:8_integrated_circuits"}
+})
+
+minetest.register_craftitem("electronic_materials:sd_card_8gb", {
+    description = "SD Card (8 GB)",
+    inventory_image = "em_sd_card.png"
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "electronic_materials:sd_card_8gb",
+    recipe = {"electronic_materials:integrated_circuit", "electronic_materials:microcontroller_unit", "electronic_materials:small_circuit_board",
+              "electronic_materials:molten_plastic", "dye:black" }
+})
+
+minetest.register_craftitem("electronic_materials:sd_card_16gb", {
+    description = "SD Card (16 GB)",
+    inventory_image = "em_sd_card.png"
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "electronic_materials:sd_card_16gb",
+    recipe = {"electronic_materials:2_integrated_circuits", "electronic_materials:microcontroller_unit", "electronic_materials:small_circuit_board",
+              "electronic_materials:molten_plastic", "dye:black" }
+})
+
+minetest.register_craftitem("electronic_materials:sd_card_32gb", {
+    description = "SD Card (32 GB)",
+    inventory_image = "em_sd_card.png"
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "electronic_materials:sd_card_32gb",
+    recipe = {"electronic_materials:4_integrated_circuits", "electronic_materials:microcontroller_unit", "electronic_materials:small_circuit_board",
+              "electronic_materials:molten_plastic", "dye:black" }
+})
+
+minetest.register_craftitem("electronic_materials:sd_card_64gb", {
+    description = "SD Card (64 GB)",
+    inventory_image = "em_sd_card.png"
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "electronic_materials:sd_card_64gb",
+    recipe = {"electronic_materials:8_integrated_circuits", "electronic_materials:microcontroller_unit", "electronic_materials:small_circuit_board",
+              "electronic_materials:molten_plastic", "dye:black" }
+})
+
+minetest.register_craftitem("electronic_materials:sd_card_128gb", {
+    description = "SD Card (128 GB)",
+    inventory_image = "em_sd_card.png"
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "electronic_materials:sd_card_128gb",
+    recipe = {"electronic_materials:16_integrated_circuits", "electronic_materials:microcontroller_unit", "electronic_materials:small_circuit_board",
+              "electronic_materials:molten_plastic", "dye:black" }
 })
