@@ -121,6 +121,12 @@ minetest.register_craftitem("electronic_materials:green_solder_mask", {
     inventory_image = "em_green_solder_mask.png"
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "electronic_materials:green_solder_mask",
+	recipe = { "basic_materials:oil_extract", "dye:dark_green" },
+})
+
 minetest.register_craftitem("electronic_materials:blue_solder_mask", {
     description = "Blue Solder Mask",
     inventory_image = "em_blue_solder_mask.png"
@@ -128,8 +134,8 @@ minetest.register_craftitem("electronic_materials:blue_solder_mask", {
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "electronic_materials:green_solder_mask",
-	recipe = { "basic_materials:oil_extract", "dye:dark_green" },
+	output = "electronic_materials:blue_solder_mask",
+	recipe = { "basic_materials:oil_extract", "dye:blue" },
 })
 
 minetest.register_craftitem("electronic_materials:plastic_fiberglass", {
