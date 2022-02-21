@@ -1,3 +1,20 @@
+
+electronic_materials = {}
+dofile(minetest.get_modpath("electronic_materials") .. "/storagedevices.lua")
+
+--Mod Storage--
+---------------
+local modstorage = minetest.get_mod_storage()
+electronic_materials.storage = {}
+
+function electronic_materials.storage.set_string(key, value)
+    modstorage:set_string(key, value)
+end
+
+function electronic_materials.storage.get_string(key)
+    return modstorage:get_string(key)
+end
+
 --Ores
 dofile(minetest.get_modpath("electronic_materials") .. "/ores.lua")
 dofile(minetest.get_modpath("electronic_materials") .. "/ores_crafting.lua")
@@ -115,10 +132,16 @@ minetest.register_craft({
 	}
 })
 
---Msic
+--Misc
 minetest.register_craftitem("electronic_materials:green_solder_mask", {
     description = "Green Solder Mask",
     inventory_image = "em_green_solder_mask.png"
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "electronic_materials:green_solder_mask",
+	recipe = { "basic_materials:oil_extract", "dye:dark_green" },
 })
 
 minetest.register_craftitem("electronic_materials:blue_solder_mask", {
@@ -128,8 +151,8 @@ minetest.register_craftitem("electronic_materials:blue_solder_mask", {
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "electronic_materials:green_solder_mask",
-	recipe = { "basic_materials:oil_extract", "dye:dark_green" },
+	output = "electronic_materials:blue_solder_mask",
+	recipe = { "basic_materials:oil_extract", "dye:blue" },
 })
 
 minetest.register_craftitem("electronic_materials:plastic_fiberglass", {
@@ -347,7 +370,11 @@ minetest.register_craft({
 
 minetest.register_craftitem("electronic_materials:hard_drive_500gb", {
     description = "Hard Drive (500 GB)",
-    inventory_image = "em_hard_drive.png"
+    inventory_image = "em_hard_drive.png",
+    storagedevice = {
+        type = "hdd",
+        capacity = 1073741824*500,
+    }
 })
 
 minetest.register_craft({
@@ -359,7 +386,11 @@ minetest.register_craft({
 
 minetest.register_craftitem("electronic_materials:hard_drive_1tb", {
     description = "Hard Drive (1 TB)",
-    inventory_image = "em_hard_drive.png"
+    inventory_image = "em_hard_drive.png",
+    storagedevice = {
+        type = "hdd",
+        capacity = 1099511627776*1
+    }
 })
 
 minetest.register_craft({
@@ -371,7 +402,11 @@ minetest.register_craft({
 
 minetest.register_craftitem("electronic_materials:hard_drive_1_5tb", {
     description = "Hard Drive (1.5 TB)",
-    inventory_image = "em_hard_drive.png"
+    inventory_image = "em_hard_drive.png",
+    storagedevice = {
+        type = "hdd",
+        capacity = 1099511627776*1.5
+    }
 })
 
 minetest.register_craft({
@@ -383,7 +418,11 @@ minetest.register_craft({
 
 minetest.register_craftitem("electronic_materials:hard_drive_2tb", {
     description = "Hard Drive (2 TB)",
-    inventory_image = "em_hard_drive.png"
+    inventory_image = "em_hard_drive.png",
+    storagedevice = {
+        type = "hdd",
+        capacity = 1099511627776*2
+    }
 })
 
 minetest.register_craft({
@@ -395,7 +434,11 @@ minetest.register_craft({
 
 minetest.register_craftitem("electronic_materials:hard_drive_2_5tb", {
     description = "Hard Drive (2.5 TB)",
-    inventory_image = "em_hard_drive.png"
+    inventory_image = "em_hard_drive.png",
+    storagedevice = {
+        type = "hdd",
+        capacity = 1099511627776*2.5
+    }
 })
 
 minetest.register_craft({
@@ -405,7 +448,7 @@ minetest.register_craft({
 		"electronic_materials:five_hard_disk_platters" }
 })
 
---SSDs
+--SDs
 minetest.register_craftitem("electronic_materials:silicon_wafer", {
     description = "Silicon Wafer",
     inventory_image = "em_silicon_wafer.png"
@@ -478,7 +521,11 @@ minetest.register_craft({
 
 minetest.register_craftitem("electronic_materials:sd_card_8gb", {
     description = "SD Card (8 GB)",
-    inventory_image = "em_sd_card.png"
+    inventory_image = "em_sd_card.png",
+    storagedevice = {
+        type = "sd",
+        capacity = 1073741824*8,
+    }
 })
 
 minetest.register_craft({
@@ -490,7 +537,11 @@ minetest.register_craft({
 
 minetest.register_craftitem("electronic_materials:sd_card_16gb", {
     description = "SD Card (16 GB)",
-    inventory_image = "em_sd_card.png"
+    inventory_image = "em_sd_card.png",
+    storagedevice = {
+        type = "sd",
+        capacity = 1073741824*16,
+    }
 })
 
 minetest.register_craft({
@@ -502,7 +553,11 @@ minetest.register_craft({
 
 minetest.register_craftitem("electronic_materials:sd_card_32gb", {
     description = "SD Card (32 GB)",
-    inventory_image = "em_sd_card.png"
+    inventory_image = "em_sd_card.png",
+    storagedevice = {
+        type = "sd",
+        capacity = 1073741824*32,
+    }
 })
 
 minetest.register_craft({
@@ -514,7 +569,11 @@ minetest.register_craft({
 
 minetest.register_craftitem("electronic_materials:sd_card_64gb", {
     description = "SD Card (64 GB)",
-    inventory_image = "em_sd_card.png"
+    inventory_image = "em_sd_card.png",
+    storagedevice = {
+        type = "sd",
+        capacity = 1073741824*64,
+    }
 })
 
 minetest.register_craft({
@@ -526,7 +585,11 @@ minetest.register_craft({
 
 minetest.register_craftitem("electronic_materials:sd_card_128gb", {
     description = "SD Card (128 GB)",
-    inventory_image = "em_sd_card.png"
+    inventory_image = "em_sd_card.png",
+    storagedevice = {
+        type = "sd",
+        capacity = 1073741824*128,
+    }
 })
 
 minetest.register_craft({
